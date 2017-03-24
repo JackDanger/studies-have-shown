@@ -1,0 +1,26 @@
+{
+	"manifest_version": 2,
+
+	"name": "Studies have shown",
+    "short_name": "Studies have shown",
+	"description": "Replaces the phrase 'Studies have shown' with the equally-helpful 'The archangel Gabriel said'",
+	"author": "Jack Danger Canty",
+	"version": "0.9",
+
+	"icons": {
+		"16": "icon16.png",
+		"32": "icon32.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+
+	"content_scripts":
+	[
+		{
+			"matches": ["*://*/*"],
+			"all_frames": true,
+			"js": ["content_script.js"],
+			"run_at": "document_end"
+		}
+	]
+}
