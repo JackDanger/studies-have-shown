@@ -29,10 +29,18 @@ var patterns = [
   /\bnew studies showed\b/gi,
 ]
 
-function replaceText(v)
+var replacements = [
+  'the archangel Gabriel said'
+]
+
+function sampleReplacements() {
+  return replacements[Math.floor(Math.random() * replacements.length)];
+}
+
+function replaceText(v, replacement)
 {
 
-    replacement = 'the archangel gabriel'
+    replacement = sampleReplacements()
     for (var i = patterns.length; i > 0; --i) {
       v = v.replace(patterns[i], replacement)
     }
@@ -81,4 +89,13 @@ function walkAndObserve(doc) {
         titleObserver.observe(docTitle, observerConfig);
     }
 }
-walkAndObserve(document);
+
+if (typeof document != 'undefined') {
+  walkAndObserve(document);
+}
+// for testing
+module.exports = {
+  replaceText: replaceText,
+  patterns: patterns,
+  replacements: replacements,
+}
